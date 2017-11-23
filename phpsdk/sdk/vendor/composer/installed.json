@@ -1,0 +1,45 @@
+[
+    {
+        "name": "google/protobuf",
+        "version": "v3.3.2",
+        "version_normalized": "3.3.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/google/protobuf.git",
+            "reference": "5532abc15b97f3489183b266b41844306052a3fa"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/google/protobuf/zipball/5532abc15b97f3489183b266b41844306052a3fa",
+            "reference": "5532abc15b97f3489183b266b41844306052a3fa",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": ">=4.8.0"
+        },
+        "time": "2017-06-21T22:29:32+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Google\\Protobuf\\Internal\\": "php/src/Google/Protobuf/Internal",
+                "GPBMetadata\\Google\\Protobuf\\Internal\\": "php/src/GPBMetadata/Google/Protobuf/Internal"
+            },
+            "files": [
+                "php/src/Google/Protobuf/descriptor.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "description": "proto library for PHP",
+        "homepage": "https://developers.google.com/protocol-buffers/",
+        "keywords": [
+            "proto"
+        ]
+    }
+]

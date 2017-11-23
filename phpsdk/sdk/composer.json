@@ -1,0 +1,13 @@
+{
+    "name": "ipaynow0407/untitled",
+    "authors": [
+        {
+            "name": "liuyu",
+            "email": "liuyu@ipaynow.cn"
+        }
+    ],
+    "autoload": {
+      "classmap" : ["proto/", "rpc/", "util/", "exception/", "dto/", "annotation/", "GPBMetadata/", "test/"]
+    },
+    "require": {"google/protobuf":"v3.3.2"}
+}

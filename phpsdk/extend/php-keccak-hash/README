@@ -1,0 +1,64 @@
+Keccak (SHA-3) hash function for PHP
+Version 0.2
+
+Keccak (pronounced [kɛtʃak], like “ketchak”) is the hash function that has been
+chosen as the winner of NIST's SHA-3 hash algorithm competition. Keccak can be
+considered to be a successor of RadioGatún; However, it has a very different
+design philosophy.
+
+The author of this extension was in no way involved in the development of the
+Keccak hash function itself. The hash source code was taken directly from NIST
+submission package with a few minor variable name changes so that it would play
+nice with PHP.
+
+See the CREDITS section for more details.
+
+= INSTALLATION =
+
+You'll need to have the PHP 5 development package and a working build
+environment to compile this module.
+
+To compile and install the PHP extension:
+
+   phpize
+   ./configure --enable-keccak
+   make
+   sudo make install
+
+Then add the following to your php.ini file:
+
+   extension=keccak.so
+
+To build the keccak-cli program:
+
+    gcc -g -O2 keccak-cli.c  KeccakF-1600-opt64.c  KeccakNISTInterface.c KeccakSponge.c -o keccak-cli
+
+= USAGE =
+
+Function Description:
+   
+   string keccak_hash(string $string [, int bit_length = 512])
+
+Example:
+
+   // Build a base-64 encoded hash
+   $hash = base64_encode(keccak_hash('Hello, world.'));
+
+= CREDITS =
+
+The Keccak team: Guido Bertoni, Joan Daemen, Michaël Peeters,
+and Gilles Van Assche.
+
+PHP extension written by Bryan C. Geraghty <bryan@ravensight.org>
+
+For more details, see: 
+
+   http://keccak.noekeon.org/
+   http://csrc.nist.gov/groups/ST/hash/sha-3/Round3/submissions_rnd3.html
+
+= LICENSE =
+
+The SHA-3 Submission Requirements states:
+
+   "an irrevocable nonexclusive royalty-free license to practice the referenced
+   algorithm, reference implementation or the optimized implementations"
