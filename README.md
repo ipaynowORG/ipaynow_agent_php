@@ -12,7 +12,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;[1.1 简介](#1.1)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[1.2 如何获取](#1.2)
+&nbsp;&nbsp;&nbsp;&nbsp;[1.2 获取使用](#1.2)
 
 &nbsp;&nbsp;&nbsp;&nbsp;[1.3 接口地址](#1.3)
 
@@ -45,11 +45,28 @@
 
 - 代付: 代付是指现在支付商户根据自己的业务需要先将业务资金充值入自己在现在支付的余额账户中，然后发起指令，委托现在支付从自己的虚拟账户中将业务资金转账到指令中指定的银行卡中。业务资金将实时入账到指令指定的收款人银行卡。
 
-<h4 id='1.2'> 1.2 如何获取 </h4>
+<h4 id='1.2'> 1.2 获取使用 </h4>
 
 [获取源码](https://github.com/ipaynowORG/ipaynow_agent_php)
 
 [demo源码](https://github.com/ipaynowORG/ipaynow_agent_php)
+
+    目前php版sdk只能在苹果或linux系统下使用。
+    * 将sdk文件夹下的所有文件夹加入到php项目的根目录下。
+    * 将composer.json中的autoload和require配置加入到自己的php的composer.json文件中。
+    * 确保已安装composer，运行php composer.phar install 命令。
+    
+    * 安装sdk签名需要的so文件，在终端中进入extend目录执行以下命令编译secp256k1.so文件
+      cd secp256k1
+      ./autogen.sh && ./configure --enable-experimental --enable-module-{ecdh,recovery} && make && sudo make install
+      cd ../secp256k1-php/secp256k1
+      phpize && ./configure --with-secp256k1 && make && sudo make install
+      执行以下命令编译keccak.so文件
+      cd php-keccak-hash 
+      phpize && ./configure --enable-keccak && make && sudo make install
+       将编译生成的两个so文件加入自己php项目的扩展配置
+    
+    * test目录下有测试demo，开发人员可自行查看。
 
 <h4 id='1.3'> 1.3 接口地址 </h4>
 
