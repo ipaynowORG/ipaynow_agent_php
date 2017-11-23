@@ -6,10 +6,7 @@ require '../vendor/autoload.php';
  * Date: 2017/7/5
  * Time: 15:22
  */
-class TestQuery extends PHPUnit_Framework_TestCase
-{
-    public function test()
-    {
+
         //    $testUrl = "http://120.76.2.245:8080/gateway";
         $testUrl = "http://bc-test.ipaynow.cn/gateway";
         $testKey = "013f81ac3ee1101b620031c00eac22ab53334c083c09fc191e05c29c9f0d26ad";
@@ -25,5 +22,3 @@ class TestQuery extends PHPUnit_Framework_TestCase
         //    $dto = $ipayNowClient->agentPayOrReceiveQuery($reqDto);
         //   $dto = $ipayNowClient->gzhOrZhusaoQuery($reqDto);
         var_dump($dto);
-    }
-}

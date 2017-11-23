@@ -52,11 +52,11 @@
 [demo源码](https://github.com/ipaynowORG/ipaynow_agent_php)
 
     目前php版sdk只能在苹果或linux系统下使用。
-    * 将sdk文件夹下的所有文件夹加入到php项目的根目录下。
-    * 将composer.json中的autoload和require配置加入到自己的php的composer.json文件中。
-    * 确保已安装composer，运行php composer.phar install 命令。
+    1 将sdk文件夹下的所有文件夹加入到php项目的根目录下。
+    2 将composer.json中的autoload和require配置加入到自己的php的composer.json文件中。
+    3 确保已安装composer，运行php composer.phar install 命令。
     
-    * 安装sdk签名需要的so文件，在终端中进入extend目录执行以下命令编译secp256k1.so文件
+    4 安装sdk签名需要的so文件，在终端中进入extend目录执行以下命令编译secp256k1.so文件
       cd secp256k1
       ./autogen.sh && ./configure --enable-experimental --enable-module-{ecdh,recovery} && make && sudo make install
       cd ../secp256k1-php/secp256k1
@@ -66,7 +66,7 @@
       phpize && ./configure --enable-keccak && make && sudo make install
        将编译生成的两个so文件加入自己php项目的扩展配置
     
-    * test目录下有测试demo，开发人员可自行查看。
+    5 test目录下有测试demo，开发人员可自行查看。
 
 <h4 id='1.3'> 1.3 接口地址 </h4>
 
