@@ -230,4 +230,92 @@ class DefaultIpayNowClient
         $dto->setAppId($reqDto->getAppId());
         return $dto;
     }
+
+    public function agentPayRefundQuery($queryReqDto){
+        $queryAgentPayRefundParams=new QueryAgentPayRefundParams();
+        $queryAgentPayRefundParams->setAppId($queryReqDto->getAppId());
+        $queryAgentPayRefundParams->setTransId($queryReqDto->getMhtOrderNo());
+
+        $payInvoke = new PayInvoke();
+        $payInvoke->setMethod(PayInvokeMethod::QUERY_METHOD);
+        $payInvoke->setParams($queryAgentPayRefundParams->serializeToString());
+
+        $content = new Content();
+        $content->setData($payInvoke->serializeToString());
+        $content->setNonce($this->merchantId."_".$queryReqDto->getMhtOrderNo());
+
+        $transaction = new Transaction();
+        $transaction->setContent($content->serializeToString());
+        $transaction->setFrom($this->merchantId);
+
+        $signedTransaction = new SignedTransaction();
+        $signedTransaction->setTransaction($transaction->serializeToString());
+        $signedTransaction->setCrypto(Crypto::SECP);
+        $signedTransaction->setSignature(SignUtil::sign($this->privateKey,$transaction->serializeToString()));
+
+        $param = new Param();
+        $param->setMethod(METHOD::AGENT_PAY_REFUND_QUERY);
+        $param->setSign($signedTransaction);
+
+        $ipayProtoRpcClient = new IpayProtoRpcClient($this->serverUrl);
+        $responseMsg = $ipayProtoRpcClient->execute($param->serializeToString());
+        var_dump($responseMsg);
+        $dto = JSONObject::parse("AgentPayRefundQueryRespDto", $responseMsg);
+        $dto->setAppId($queryReqDto->getAppId());
+        return $dto;
+
+    }
+
+
+
+    public function agentPayRefundBatchQuery($reqDto){
+        $queryAgentPayRefundParams=new QueryAgentPayRefundParams();
+        $queryAgentPayRefundParams->setAppId($reqDto->getAppId());
+        $queryAgentPayRefundParams->setTransId($reqDto->getMhtOrderNo());
+        $queryAgentPayRefundParams->setNowPage($reqDto->getNowPage());
+        $queryAgentPayRefundParams->setPageSize($reqDto->getPageSize());
+        $queryAgentPayRefundParams->setRefundDate($reqDto->getRefundDate());
+
+        $payInvoke = new PayInvoke();
+        $payInvoke->setMethod(PayInvokeMethod::QUERY_METHOD);
+        $payInvoke->setParams($queryAgentPayRefundParams->serializeToString());
+
+        $content = new Content();
+        $content->setData($payInvoke->serializeToString());
+        $content->setNonce($this->merchantId."_".$reqDto->getMhtOrderNo());
+
+        $transaction = new Transaction();
+        $transaction->setContent($content->serializeToString());
+        $transaction->setFrom($this->merchantId);
+
+        $signedTransaction = new SignedTransaction();
+        $signedTransaction->setTransaction($transaction->serializeToString());
+        $signedTransaction->setCrypto(Crypto::SECP);
+        $signedTransaction->setSignature(SignUtil::sign($this->privateKey,$transaction->serializeToString()));
+
+        $param = new Param();
+        $param->setMethod(METHOD::AGENT_PAY_REFUND_BATCH_QUERY);
+        $param->setSign($signedTransaction);
+
+        $ipayProtoRpcClient = new IpayProtoRpcClient($this->serverUrl);
+        $responseMsg = $ipayProtoRpcClient->execute($param->serializeToString());
+        $jsonobject=json_decode($responseMsg);
+        $dto = JSONObject::parse("AgentPayRefundBatchQueryRespDto", $responseMsg);
+
+        $refundDatas = $jsonobject->refundDatas;
+        if (!empty($refundDatas)){
+            $refundist=array();
+            $refundJson = json_decode($refundDatas);
+            foreach($refundJson as $key => $value){
+                $respField = JSONObject::parse("AgentPayRefundQueryRespField", json_encode($value));
+                array_push($refundist,$respField);
+            }
+            $dto->setAgentPayRefundQueryRespFieldList($refundist);
+        }
+
+        return $dto;
+
+
+
+    }
 }

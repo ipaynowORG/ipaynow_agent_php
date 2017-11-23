@@ -7,11 +7,11 @@ require '../vendor/autoload.php';
  * Time: 6:25 PM
  */
 
-class TestBalanceQuery extends PHPUnit_Framework_TestCase
-{
-    public function test()
-    {
-    
+//class TestBalanceQuery extends PHPUnit_Framework_TestCase
+//{
+  //  public function test()
+    //{
+        //    $testUrl = "http://120.76.2.245:8080/gateway";
         $testUrl = "http://bc-test.ipaynow.cn/gateway";
         $testKey = "013f81ac3ee1101b620031c00eac22ab53334c083c09fc191e05c29c9f0d26ad";
         $testMerchant = "000100000000010000000000000001";
@@ -19,11 +19,12 @@ class TestBalanceQuery extends PHPUnit_Framework_TestCase
         $reqDto = new QueryReqDto();
         $reqDto->setMhtOrderNo("1501570360969");
         $reqDto->setAppId("1459846530407363");
-        $reqDto->setMhtReqTime("20170222160317");
+       // $reqDto->setMhtReqTime("20171023121212");
         $reqDto->setRouter("00010000000003");
 
         $dto = $ipayNowClient->balanceQuery($reqDto);
-
+        //    $dto = $ipayNowClient->agentPayOrReceiveQuery($reqDto);
+        //   $dto = $ipayNowClient->gzhOrZhusaoQuery($reqDto);
         var_dump($dto);
-    }
-}
+    //}
+//}

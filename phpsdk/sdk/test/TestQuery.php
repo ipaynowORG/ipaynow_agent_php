@@ -10,7 +10,7 @@ class TestQuery extends PHPUnit_Framework_TestCase
 {
     public function test()
     {
-  
+        //    $testUrl = "http://120.76.2.245:8080/gateway";
         $testUrl = "http://bc-test.ipaynow.cn/gateway";
         $testKey = "013f81ac3ee1101b620031c00eac22ab53334c083c09fc191e05c29c9f0d26ad";
         $testMerchant = "000100000000010000000000000001";
@@ -22,7 +22,8 @@ class TestQuery extends PHPUnit_Framework_TestCase
         $reqDto->setRouter("00010000000003");
 
         $dto = $ipayNowClient->transQuery($reqDto);
- 
+        //    $dto = $ipayNowClient->agentPayOrReceiveQuery($reqDto);
+        //   $dto = $ipayNowClient->gzhOrZhusaoQuery($reqDto);
         var_dump($dto);
     }
 }

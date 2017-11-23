@@ -185,26 +185,27 @@
 
         /**
          * 单笔代付退票查询
-         * @param reqDto,appId 商户应用唯一标识,mhtOrderNo 商户请求流水号
+         * @param reqDto,
+         * $appId 商户应用唯一标识,
+         * $mhtOrderNo 商户请求流水号
          * @return AgentPayRefundQueryRespDto
-         * responseCode 响应码(见文档附录)
-         * responseMsg 响应信息
-         * mhtOrderNo,同输入
-         * appId,同输入
-         * nowPayOrderNo , 现在支付流水号,退票流水号
-         * originalMhtOrderNo ,
-         * originalNowPayOrderNo , 原代付流水号
-         * payeeAccType ,入账账户类型,01 对公  02 对私
-         * payeeName, 入账账户户名
-         * payeeCardNo, 入账账户账号
-         * payeeCardUnionNo,入账账户联行号
-         * refundDate,退票日期,yyyyMMdd
-         * refundCode,退票码
-         * refundMsg,退票原因
-         * transStatus,交易状态。SUCCESSED,成功 。FAILED,失败。PROCESSING,处理中。
-         * @throws IpayNowException
+         * $responseCode 响应码(见文档附录)
+         * $responseMsg 响应信息
+         * $mhtOrderNo,同输入
+         * $appId,同输入
+         * $nowPayOrderNo , 现在支付流水号,退票流水号
+         * $originalMhtOrderNo ,
+         * $originalNowPayOrderNo , 原代付流水号
+         * $payeeAccType ,入账账户类型,01 对公  02 对私
+         * $payeeName, 入账账户户名
+         * $payeeCardNo, 入账账户账号
+         * $payeeCardUnionNo,入账账户联行号
+         * $refundDate,退票日期,yyyyMMdd
+         * $refundCode,退票码
+         * $refundMsg,退票原因
+         * $transStatus,交易状态。SUCCESSED,成功 。FAILED,失败。PROCESSING,处理中。
          */
-        AgentPayRefundQueryRespDto agentPayRefundQuery(QueryReqDto reqDto) throws IpayNowException;
+        public function agentPayRefundQuery($queryReqDto)
 
 <h5 id='2.1.6'></h4>
 
@@ -212,20 +213,24 @@
 
         /**
          * 代付退票批量查询
-         * @param reqDto ,appId 商户应用唯一标识,mhtOrderNo 商户请求流水号,nowPage 商户请求页码,pageSize 商户请求数据量,refundDate 退票日期
+         * @param reqDto ,
+         * $appId 商户应用唯一标识,
+         * $mhtOrderNo 商户请求流水号,
+         * $nowPage 商户请求页码,
+         * $pageSize 商户请求数据量,
+         * $refundDate 退票日期
          * @return AgentPayRefundBatchQueryRespDto
-         * responseCode 响应码(见文档附录)
-         * responseMsg 响应信息
-         * mhtOrderNo,同输入
-         * appId,同输入
-         * nowPage,同输入
-         * pageSize,同输入
-         * countNums,数据总数
-         * countPages,总页数
-         * agentPayRefundQueryRespFieldList , 见AgentPayRefundQueryRespDto中的相关字段含义
-         * @throws IpayNowException
+         * $responseCode 响应码(见文档附录)
+         * $responseMsg 响应信息
+         * $mhtOrderNo,同输入
+         * $appId,同输入
+         * $nowPage,同输入
+         * $pageSize,同输入
+         * $countNums,数据总数
+         * $countPages,总页数
+         * $agentPayRefundQueryRespFieldList , 见AgentPayRefundQueryRespDto中的相关字段含义
          */
-        AgentPayRefundBatchQueryRespDto agentPayRefundBatchQuery(BatchQueryReqDto reqDto) throws IpayNowException;
+        public function agentPayRefundBatchQuery($reqDto)
 
 <h4 id='2.2'>2.2 支付结果通知</h4>
 

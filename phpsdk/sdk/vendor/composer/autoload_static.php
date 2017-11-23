@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInited7230f2d844849796a7cb0338a2b56b
+class ComposerStaticInitcf650c92b9cdb6b3f326116bac1dd191
 {
     public static $files = array (
         '7c623dc93c03ddd466695ebe6517b393' => __DIR__ . '/..' . '/google/protobuf/php/src/Google/Protobuf/descriptor.php',
@@ -30,10 +30,14 @@ class ComposerStaticInited7230f2d844849796a7cb0338a2b56b
     );
 
     public static $classMap = array (
+        'AgentPayRefundBatchQueryRespDto' => __DIR__ . '/../..' . '/dto/AgentPayRefundBatchQueryRespDto.php',
+        'AgentPayRefundQueryRespDto' => __DIR__ . '/../..' . '/dto/AgentPayRefundQueryRespDto.php',
+        'AgentPayRefundQueryRespField' => __DIR__ . '/../..' . '/dto/AgentPayRefundQueryRespField.php',
         'AgentPayReqDto' => __DIR__ . '/../..' . '/dto/AgentPayReqDto.php',
         'AgentReceiveReqDto' => __DIR__ . '/../..' . '/dto/AgentReceiveReqDto.php',
         'ApiKey' => __DIR__ . '/../..' . '/annotation/ApiKey.php',
         'BalanceQueryRespDto' => __DIR__ . '/../..' . '/dto/BalanceQueryRespDto.php',
+        'BatchQueryReqDto' => __DIR__ . '/../..' . '/dto/BatchQueryReqDto.php',
         'Content' => __DIR__ . '/../..' . '/proto/Content.php',
         'Crypto' => __DIR__ . '/../..' . '/proto/Crypto.php',
         'DefaultIpayNowClient' => __DIR__ . '/../..' . '/rpc/DefaultIpayNowClient.php',
@@ -50,16 +54,16 @@ class ComposerStaticInited7230f2d844849796a7cb0338a2b56b
         'PayInvoke' => __DIR__ . '/../..' . '/proto/PayInvoke.php',
         'PayInvokeMethod' => __DIR__ . '/../..' . '/proto/PayInvokeMethod.php',
         'PayRequestParams' => __DIR__ . '/../..' . '/proto/PayRequestParams.php',
+        'QueryAgentPayRefundParams' => __DIR__ . '/../..' . '/proto/QueryAgentPayRefundParams.php',
         'QueryDetailParams' => __DIR__ . '/../..' . '/proto/QueryDetailParams.php',
         'QueryReqDto' => __DIR__ . '/../..' . '/dto/QueryReqDto.php',
         'ReqParam' => __DIR__ . '/../..' . '/proto/ReqParam.php',
         'SignUtil' => __DIR__ . '/../..' . '/util/SignUtil.php',
         'SignedTransaction' => __DIR__ . '/../..' . '/proto/SignedTransaction.php',
         'Status' => __DIR__ . '/../..' . '/proto/Status.php',
-        'TestAgentPay' => __DIR__ . '/../..' . '/test/TestAgentPay.php',
-        'TestAgentReceive' => __DIR__ . '/../..' . '/test/TestAgentReceive.php',
-        'TestBalanceQuery' => __DIR__ . '/../..' . '/test/TestBalanceQuery.php',
+        'TestGZH' => __DIR__ . '/../..' . '/test/TestGZH.php',
         'TestQuery' => __DIR__ . '/../..' . '/test/TestQuery.php',
+        'TestZhusao' => __DIR__ . '/../..' . '/test/TestZhusao.php',
         'TransQueryRespDto' => __DIR__ . '/../..' . '/dto/TransQueryRespDto.php',
         'TransReqBaseDto' => __DIR__ . '/../..' . '/dto/TransReqBaseDto.php',
         'TransRespBaseDto' => __DIR__ . '/../..' . '/dto/TransRespBaseDto.php',
@@ -71,9 +75,9 @@ class ComposerStaticInited7230f2d844849796a7cb0338a2b56b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInited7230f2d844849796a7cb0338a2b56b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInited7230f2d844849796a7cb0338a2b56b::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInited7230f2d844849796a7cb0338a2b56b::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitcf650c92b9cdb6b3f326116bac1dd191::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitcf650c92b9cdb6b3f326116bac1dd191::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitcf650c92b9cdb6b3f326116bac1dd191::$classMap;
 
         }, null, ClassLoader::class);
     }
